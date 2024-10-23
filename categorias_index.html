@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Categorías</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 50px;
+        }
+
+        .button-container {
+            margin-top: 50px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gestión de Categorías</h1>
+
+    <div class="button-container">
+        <!-- Botón para crear nueva categoría -->
+        <button onclick="window.location.href='crear_categoria.html'">Crear Categoría</button>
+
+        <!-- Botón para ver productos por categoría -->
+        <button onclick="window.location.href='ver_productos_categoria.php'">Ver Productos por Categoría</button>
+    </div>
+
+    <br>
+    <a href="productos_index.html"><button>Regresar al Índice de Productos</button></a>
+</body>
+</html>
+

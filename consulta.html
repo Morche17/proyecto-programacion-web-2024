@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consulta de Datos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .grid-item {
+      padding: 10px;
+    }
+
+    .grid-item label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .grid-item input {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+
+    .button {
+      grid-column: span 2;
+      text-align: center;
+    }
+
+    .button input {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>Consulta de Datos</h2>
+  <form action="consulta.php" method="post">
+    <div class="grid-container">
+      <div class="grid-item">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name">
+      </div>
+      <div class="grid-item">
+        <label for="tel">Teléfono:</label>
+        <input type="text" id="tel" name="tel">
+      </div>
+      <div class="grid-item">
+        <label for="mail">Correo Electrónico:</label>
+        <input type="email" id="mail" name="mail">
+      </div>
+      <div class="grid-item">
+        <label for="app">Apellido Paterno:</label>
+        <input type="text" id="app" name="app">
+      </div>
+      <div class="grid-item">
+        <label for="apm">Apellido Materno:</label>
+        <input type="text" id="apm" name="apm">
+      </div>
+      <div class="grid-item button">
+        <input type="submit" value="Consultar">
+      </div>
+    </div>
+  </form>
+
+</body>
+
+</html>
