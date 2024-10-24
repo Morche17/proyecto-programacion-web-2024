@@ -44,7 +44,7 @@ $resultado = mysqli_query($conn, $sql);
     </table>
 
     <br>
-    <a href="index.html"><button>Regresar al Inicio</button></a>
+    <a href="general_index.html"><button>Regresar al Inicio</button></a>
 </body>
 
 </html>

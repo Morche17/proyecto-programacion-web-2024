@@ -40,7 +40,7 @@ $result_categorias = mysqli_query($conn, $sql_categorias);
         <label for="volumen">Volumen (en cm³):</label>
         <input type="number" id="volumen" name="volumen" required><br>
 
-        <label for="peso">Peso (en kg):</label>
+        <label for="peso">Peso (en gramos):</label>
         <input type="number" id="peso" name="peso" required><br>
 
         <label for="stock">Stock:</label>

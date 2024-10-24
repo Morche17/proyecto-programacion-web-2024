@@ -1,57 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Principal</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-
-        h1 {
-            margin-top: 50px;
-        }
-
-        .button-container {
-            margin-top: 100px;
-        }
-
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            margin: 10px;
-            border: none;
-            background-color: #4CAF50;
-            color: white;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-    </style>
+    <title>Login</title>
 </head>
-
 <body>
-    <h1>Bienvenido</h1>
-    <p>Selecciona una opción para continuar:</p>
+    <h1>Iniciar Sesión</h1>
+    <form action="login_proceso.php" method="POST">
+        <label for="mail">Correo Electrónico:</label>
+        <input type="email" name="mail" required><br><br>
 
-    <div class="button-container">
-        <button onclick="window.location.href='form.html'">Registrar Cliente</button>
-        <button onclick="window.location.href='consulta.php'">Consultar Registros</button>
-        <button onclick="window.location.href='eliminar_cliente.php'">Eliminar Cliente</button>
-        <button onclick="window.location.href='actualizar_cliente.php'">Actualizar Datos</button>
-        
-        <!-- Nuevo botón para gestionar productos -->
-        <button onclick="window.location.href='productos_index.html'">Gestionar Productos</button>
-    </div>
+        <label for="password">Contraseña:</label>
+        <input type="password" name="password" required><br><br>
+
+        <button type="submit">Iniciar Sesión</button>
+    </form>
 </body>
-
 </html>
-

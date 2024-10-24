@@ -88,7 +88,7 @@ $result = mysqli_query($conn, $query);
 
   <!-- Botón para regresar al index -->
   <div class="back-button">
-    <button onclick="window.location.href='index.html'">Volver al Inicio</button>
+    <button onclick="window.location.href='general_index.html'">Volver al Inicio</button>
   </div>
 </body>
 
