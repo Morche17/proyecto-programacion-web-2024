@@ -21,7 +21,8 @@ $query = mysqli_query($conn, $sql);
 
 if ($query) {
     // Redirigir de vuelta a la página de actualización después de modificar los datos
-    header("Location: actualizar_cliente.php");
+    echo "Actualización realizada con éxito";
+    header("refresh:3;url=admin_clientes_index.html");
     exit();
 } else {
     echo "Error al actualizar el cliente: " . mysqli_error($conn);

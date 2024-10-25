@@ -11,7 +11,8 @@ $query = mysqli_query($conn, $sql);
 
 if ($query) {
     // Redirigir de vuelta a la página de eliminación después de eliminar
-    header("Location: eliminar_cliente.php");
+    echo "Eliminación realizada con éxito...";
+    header("refresh:3;url=admin_clientes_index.html");
     exit();
 } else {
     echo "Error al eliminar el cliente: " . mysqli_error($conn);

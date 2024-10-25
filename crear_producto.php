@@ -50,7 +50,7 @@ $result_categorias = mysqli_query($conn, $sql_categorias);
     </form>
 
     <br>
-    <a href="productos_index.html"><button>Regresar al Menú de Productos</button></a>
+    <a href="admin_productos_index.html"><button>Regresar al Menú de Productos</button></a>
 </body>
 </html>
 

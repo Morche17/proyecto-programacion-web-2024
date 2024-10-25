@@ -43,7 +43,8 @@ $result = mysqli_query($con, $sql);
     </table>
 
     <br>
-    <a href="ver_productos_categoria.php"><button>Regresar a Selección de Categorías</button></a>
+    <a href="user_consulta_categoria.php"><button>Regresar a Selección de Categorías</button></a>
 </body>
 </html>
+
 

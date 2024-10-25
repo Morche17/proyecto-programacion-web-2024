@@ -34,8 +34,8 @@ if (mysqli_query($conn, $sql_insert_dimensiones)) {
             VALUES ('$nombre', '$marca', '$origen', '$fotografia', '$id_categoria', '$stock', '$id_dimensiones')";
 
     if (mysqli_query($conn, $sql)) {
-        // Redirigir a proceso_index.html si el producto se registró correctamente
-        header("Location: productos_index.html");
+        echo "Registro de producto exitoso. Redirigiendo al index...";
+        header("refresh:3;url=admin_productos_index.html");
         exit();
     } else {
         echo "Error al registrar el producto: " . mysqli_error($conn);

@@ -108,9 +108,10 @@ $result = mysqli_query($con, $query);
 
   <!-- Botón para regresar al índice de productos -->
   <div class="back-button">
-    <button onclick="window.location.href='admin_productos_index.html'">Volver al Índice de Productos</button>
+    <button onclick="window.location.href='user_index.html'">Volver al Índice de Productos</button>
   </div>
 </body>
 
 </html>
+
 

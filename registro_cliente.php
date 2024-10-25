@@ -1,40 +1,41 @@
 <?php
-// Mostrar errores para depurar
+// Mostrar errores
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-include("conexion.php");
+include('conexion.php');
 $conn = conectar();
 
-// Recibir los datos del formulario
-$nombre = mysqli_real_escape_string($conn, $_POST['nombre']);
-$app = mysqli_real_escape_string($conn, $_POST['app']);
-$apm = mysqli_real_escape_string($conn, $_POST['apm']);
-$dir = mysqli_real_escape_string($conn, $_POST['dir']);
-$cp = mysqli_real_escape_string($conn, $_POST['cp']);
-$tel = mysqli_real_escape_string($conn, $_POST['tel']);
-$mail = mysqli_real_escape_string($conn, $_POST['mail']);
-$password = mysqli_real_escape_string($conn, $_POST['password']);
-$confirm_password = mysqli_real_escape_string($conn, $_POST['confirm_password']);
+// Recibir datos del formulario
+$nombre = $_POST['nombre'];
+$app = $_POST['app'];
+$apm = $_POST['apm'];
+$dir = $_POST['dir'];
+$cp = $_POST['cp'];
+$tel = $_POST['tel'];
+$mail = $_POST['mail'];
+$password = $_POST['password'];
+$confirm_password = $_POST['confirm_password'];
+$rol = $_POST['rol']; // Recibir el rol
 
 // Verificar que las contraseñas coincidan
-if ($password !== $confirm_password) {
-    die("Error: Las contraseñas no coinciden.");
+if ($password != $confirm_password) {
+    die("Las contraseñas no coinciden.");
 }
 
-// Cifrar la contraseña
-$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+// Cifrar la contraseña para mayor seguridad
+$password_encrypted = password_hash($password, PASSWORD_BCRYPT);
 
-// Insertar el usuario en la base de datos
-$sql = "INSERT INTO Clientes (nombre, app, apm, dir, cp, tel, mail, password) 
-        VALUES ('$nombre', '$app', '$apm', '$dir', '$cp', '$tel', '$mail', '$hashed_password')";
+// Insertar el nuevo usuario en la base de datos
+$sql = "INSERT INTO Clientes (nombre, app, apm, dir, cp, tel, mail, password, rol) 
+        VALUES ('$nombre', '$app', '$apm', '$dir', '$cp', '$tel', '$mail', '$password_encrypted', '$rol')";
 
 if (mysqli_query($conn, $sql)) {
-    echo "Usuario registrado exitosamente.";
-    header("Location: general_index.html");  // Redirigir a la página de login
+    echo "Registro exitoso. Redirigiendo al index clientes...";
+    header("refresh:3;url=admin_clientes_index.html");
     exit();
 } else {
-    echo "Error: " . mysqli_error($conn);
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
 
 // Cerrar la conexión
