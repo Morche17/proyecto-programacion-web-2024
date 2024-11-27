@@ -4,48 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Usuario</title>
+    <!-- Vincula Bootstrap desde su CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-    <h1>Registro de Usuario</h1>
-    <form action="registro_proceso.php" method="POST">
-        <label for="name">Nombre:</label>
-        <input type="text" name="name" required><br><br>
+<body class="bg-light">
+    <div class="container my-5">
+        <h1 class="text-center mb-4">Registro de Usuario</h1>
+        
+        <form action="registro_proceso.php" method="POST">
+            <div class="mb-3">
+                <label for="name" class="form-label">Nombre:</label>
+                <input type="text" class="form-control" name="name" required>
+            </div>
 
-        <label for="app">Apellido Paterno:</label>
-        <input type="text" name="app" required><br><br>
+            <div class="mb-3">
+                <label for="app" class="form-label">Apellido Paterno:</label>
+                <input type="text" class="form-control" name="app" required>
+            </div>
 
-        <label for="apm">Apellido Materno:</label>
-        <input type="text" name="apm" required><br><br>
+            <div class="mb-3">
+                <label for="apm" class="form-label">Apellido Materno:</label>
+                <input type="text" class="form-control" name="apm" required>
+            </div>
 
-        <label for="dir">Dirección:</label>
-        <input type="text" name="dir" required><br><br>
+            <div class="mb-3">
+                <label for="dir" class="form-label">Dirección:</label>
+                <input type="text" class="form-control" name="dir" required>
+            </div>
 
-        <label for="cp">Código Postal:</label>
-        <input type="text" name="cp" required><br><br>
+            <div class="mb-3">
+                <label for="cp" class="form-label">Código Postal:</label>
+                <input type="text" class="form-control" name="cp" required>
+            </div>
 
-        <label for="tel">Teléfono:</label>
-        <input type="text" name="tel" required><br><br>
+            <div class="mb-3">
+                <label for="tel" class="form-label">Teléfono:</label>
+                <input type="text" class="form-control" name="tel" required>
+            </div>
 
-        <label for="mail">Correo Electrónico:</label>
-        <input type="email" name="mail" required><br><br>
+            <div class="mb-3">
+                <label for="mail" class="form-label">Correo Electrónico:</label>
+                <input type="email" class="form-control" name="mail" required>
+            </div>
 
-        <label for="password">Contraseña:</label>
-        <input type="password" name="password" required><br><br>
+            <div class="mb-3">
+                <label for="password" class="form-label">Contraseña:</label>
+                <input type="password" class="form-control" name="password" required>
+            </div>
 
-        <label for="confirm_password">Confirmar Contraseña:</label>
-        <input type="password" name="confirm_password" required><br><br>
+            <div class="mb-3">
+                <label for="confirm_password" class="form-label">Confirmar Contraseña:</label>
+                <input type="password" class="form-control" name="confirm_password" required>
+            </div>
 
-        <label for="rol">Rol:</label>
-        <select name="rol" required>
-            <option value="user">Usuario</option>
-            <option value="admin">Administrador</option>
-        </select><br><br>
+            <div class="mb-3">
+                <label for="rol" class="form-label">Rol:</label>
+                <select name="rol" class="form-select" required>
+                    <option value="user">Usuario</option>
+                    <option value="admin">Administrador</option>
+                </select>
+            </div>
 
-        <button type="submit">Registrarse</button>
-    </form>
-    <br>
-    <a href="principal.php"><button>Volver al Inicio</button></a>
+            <button type="submit" class="btn btn-primary">Registrarse</button>
+        </form>
+
+        <br>
+        <a href="principal.php" class="btn btn-danger">Volver al Inicio</a>
+    </div>
+
+    <!-- Vincula el archivo de Bootstrap desde su CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
-

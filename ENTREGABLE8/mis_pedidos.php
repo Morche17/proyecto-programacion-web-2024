@@ -34,33 +34,45 @@ $result = $stmt->get_result();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mis Pedidos</title>
+    <!-- Vincula Bootstrap desde su CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-    <h1>Mis Pedidos</h1>
-    <table border="1">
-        <tr>
-            <th>ID Pedido</th>
-            <th>Fecha de Generación</th>
-            <th>Estado</th>
-            <th>Total</th>
-        </tr>
-        <?php if ($result->num_rows > 0): ?>
-            <?php while ($row = $result->fetch_assoc()): ?>
+<body class="bg-light">
+    <div class="container my-5">
+        <h1 class="text-center mb-4">Mis Pedidos</h1>
+        
+        <table class="table table-bordered table-striped">
+            <thead>
                 <tr>
-                    <td><?= htmlspecialchars($row['FichaEntregaID']) ?></td>
-                    <td><?= htmlspecialchars($row['FechaGeneracion']) ?></td>
-                    <td><?= htmlspecialchars($row['EstadoEntrega']) ?></td>
-                    <td>$<?= htmlspecialchars($row['Total']) ?></td>
+                    <th>ID Pedido</th>
+                    <th>Fecha de Generación</th>
+                    <th>Estado</th>
+                    <th>Total</th>
                 </tr>
-            <?php endwhile; ?>
-        <?php else: ?>
-            <tr>
-                <td colspan="4">No tienes pedidos activos.</td>
-            </tr>
-        <?php endif; ?>
-    </table>
-    <br>
-    <a href="principal.php">Regresar</a>
+            </thead>
+            <tbody>
+                <?php if ($result->num_rows > 0): ?>
+                    <?php while ($row = $result->fetch_assoc()): ?>
+                        <tr>
+                            <td><?= htmlspecialchars($row['FichaEntregaID']) ?></td>
+                            <td><?= htmlspecialchars($row['FechaGeneracion']) ?></td>
+                            <td><?= htmlspecialchars($row['EstadoEntrega']) ?></td>
+                            <td>$<?= number_format(htmlspecialchars($row['Total']), 2) ?></td>
+                        </tr>
+                    <?php endwhile; ?>
+                <?php else: ?>
+                    <tr>
+                        <td colspan="4">No tienes pedidos activos.</td>
+                    </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <a href="principal.php" class="btn btn-danger">Regresar</a>
+    </div>
+
+    <!-- Vincula el archivo de Bootstrap desde su CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
 
@@ -68,4 +80,3 @@ $result = $stmt->get_result();
 $stmt->close();
 $conn->close();
 ?>
-

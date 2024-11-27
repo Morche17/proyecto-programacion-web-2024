@@ -92,40 +92,60 @@ if (!$result) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrito de Compras</title>
+    <!-- Vincula Bootstrap desde su CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-    <h1>Carrito de Compras</h1>
-    <?php if ($result->num_rows > 0): ?>
-        <table border="1">
-            <tr>
-                <th>Producto</th>
-                <th>Marca</th>
-                <th>Cantidad</th>
-                <th>Precio Unitario</th>
-                <th>Subtotal</th>
-            </tr>
-            <?php while ($row = $result->fetch_assoc()): ?>
-                <tr>
-                    <td><?= htmlspecialchars($row['nombre']) ?></td>
-                    <td><?= htmlspecialchars($row['marca']) ?></td>
-                    <td><?= htmlspecialchars($row['Cantidad']) ?></td>
-                    <td>$<?= htmlspecialchars($row['PrecioUnitario']) ?></td>
-                    <td>$<?= htmlspecialchars($row['Subtotal']) ?></td>
-                </tr>
-            <?php endwhile; ?>
-        </table>
-        <form method="post">
-            <button type="submit" name="confirmar_compra">Confirmar Compra</button>
-        </form>
-    <?php else: ?>
-        <p>No hay productos en el carrito.</p>
-    <?php endif; ?>
-    <br>
-    <a href="tienda.php">Regresar a la tienda</a>
+<body class="bg-light">
+    <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <div class="card shadow-lg p-4" style="width: 100%; max-width: 800px;">
+            <div class="text-center mb-4">
+                <h1>Carrito de Compras</h1>
+            </div>
+
+            <?php if ($result->num_rows > 0): ?>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Marca</th>
+                            <th>Cantidad</th>
+                            <th>Precio Unitario</th>
+                            <th>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php while ($row = $result->fetch_assoc()): ?>
+                            <tr>
+                                <td><?= htmlspecialchars($row['nombre']) ?></td>
+                                <td><?= htmlspecialchars($row['marca']) ?></td>
+                                <td><?= htmlspecialchars($row['Cantidad']) ?></td>
+                                <td>$<?= htmlspecialchars($row['PrecioUnitario']) ?></td>
+                                <td>$<?= htmlspecialchars($row['Subtotal']) ?></td>
+                            </tr>
+                        <?php endwhile; ?>
+                    </tbody>
+                </table>
+
+                <form method="post" class="text-center">
+                    <button type="submit" name="confirmar_compra" class="btn btn-success btn-lg">Confirmar Compra</button>
+                </form>
+
+            <?php else: ?>
+                <p>No hay productos en el carrito.</p>
+            <?php endif; ?>
+
+            <br>
+            <div class="text-center">
+                <a href="tienda.php" class="btn btn-primary">Regresar a la tienda</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vincula el archivo de Bootstrap desde su CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
 
 <?php
 $conn->close();
 ?>
-

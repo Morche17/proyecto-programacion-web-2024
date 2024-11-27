@@ -3,37 +3,44 @@ session_start();
 if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'admin') {
     die("Acceso denegado.");
 }
-session_start();
 include('conexion.php');
 $conn = conectar();
-
-// Verificar si el usuario es administrador
-if ($_SESSION['rol'] !== 'admin') {
-    echo "Acceso denegado. Esta funcionalidad es solo para administradores.";
-    exit;
-}
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrar Repartidor</title>
+    <!-- Vincula Bootstrap desde su CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-    <h1>Registrar Repartidor</h1>
-    <form action="registro_repartidor_proceso.php" method="POST">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required><br><br>
+<body class="bg-light">
+    <div class="container my-5">
+        <h1 class="text-center mb-4">Registrar Repartidor</h1>
+        
+        <form action="registro_repartidor_proceso.php" method="POST">
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre:</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" required>
+            </div>
 
-        <label for="tel">Teléfono:</label>
-        <input type="text" id="tel" name="tel" required><br><br>
+            <div class="mb-3">
+                <label for="tel" class="form-label">Teléfono:</label>
+                <input type="text" class="form-control" id="tel" name="tel" required>
+            </div>
 
-        <label for="correo">Correo:</label>
-        <input type="email" id="correo" name="correo" required><br><br>
+            <div class="mb-3">
+                <label for="correo" class="form-label">Correo:</label>
+                <input type="email" class="form-control" id="correo" name="correo" required>
+            </div>
 
-        <button type="submit">Registrar Repartidor</button>
-    </form>
+            <button type="submit" class="btn btn-primary">Registrar Repartidor</button>
+        </form>
+    </div>
+
+    <!-- Vincula el archivo de Bootstrap desde su CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-

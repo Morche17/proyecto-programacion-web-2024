@@ -33,27 +33,45 @@ $result = $stmt->get_result();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Historial de Compras</title>
+    <!-- Vincula Bootstrap desde su CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-    <h1>Historial de Compras</h1>
-    <table border="1">
-        <tr>
-            <th>ID Pedido</th>
-            <th>Fecha de Generación</th>
-            <th>Estado</th>
-            <th>Total</th>
-        </tr>
-        <?php while ($row = $result->fetch_assoc()): ?>
-            <tr>
-                <td><?= htmlspecialchars($row['FichaEntregaID']) ?></td>
-                <td><?= htmlspecialchars($row['FechaGeneracion']) ?></td>
-                <td><?= htmlspecialchars($row['EstadoEntrega']) ?></td>
-                <td>$<?= htmlspecialchars($row['Total']) ?></td>
-            </tr>
-        <?php endwhile; ?>
-    </table>
-    <br>
-    <a href="principal.php">Regresar</a>
+<body class="bg-light">
+    <div class="container my-5">
+        <h1 class="text-center mb-4">Historial de Compras</h1>
+        
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>ID Pedido</th>
+                    <th>Fecha de Generación</th>
+                    <th>Estado</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if ($result->num_rows > 0): ?>
+                    <?php while ($row = $result->fetch_assoc()): ?>
+                        <tr>
+                            <td><?= htmlspecialchars($row['FichaEntregaID']) ?></td>
+                            <td><?= htmlspecialchars($row['FechaGeneracion']) ?></td>
+                            <td><?= htmlspecialchars($row['EstadoEntrega']) ?></td>
+                            <td>$<?= number_format(htmlspecialchars($row['Total']), 2) ?></td>
+                        </tr>
+                    <?php endwhile; ?>
+                <?php else: ?>
+                    <tr>
+                        <td colspan="4">No tienes compras anteriores.</td>
+                    </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+        <a href="principal.php" class="btn btn-danger">Regresar</a>
+    </div>
+
+    <!-- Vincula el archivo de Bootstrap desde su CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
 
@@ -61,4 +79,3 @@ $result = $stmt->get_result();
 $stmt->close();
 $conn->close();
 ?>
-

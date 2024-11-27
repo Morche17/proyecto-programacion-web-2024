@@ -36,8 +36,24 @@ $result_productos = $conn->query($sql_productos);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda</title>
+    <style>
+        .btn-regresar {
+            background-color: #f44336;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .btn-regresar:hover {
+            background-color: #e53935;
+        }
+    </style>
 </head>
 <body>
+    <!-- Botón para regresar al menú principal o a cualquier otra página -->
+    <a href="principal.php" class="btn-regresar">Volver al Menú Principal</a>
+
     <h1>Productos Disponibles</h1>
     <?php if ($result_productos->num_rows > 0): ?>
         <table border="1">
@@ -68,12 +84,14 @@ $result_productos = $conn->query($sql_productos);
     <?php else: ?>
         <p>No hay productos disponibles.</p>
     <?php endif; ?>
+
     <br>
-    <a href="carrito.php">Ver Carrito</a>
+    <!-- Otro botón de regresar al carrito -->
+    <a href="carrito.php" class="btn-regresar">Ver Carrito</a>
+
 </body>
 </html>
 
 <?php
 $conn->close();
 ?>
-
