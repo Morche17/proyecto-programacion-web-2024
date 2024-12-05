@@ -44,7 +44,7 @@ $cliente = $resultado->fetch_assoc();
     <div class="container">
         <h1 class="text-center mb-4">Editar Cliente</h1>
         
-        <form action="actualizar_proceso.php" method="POST">
+        <form action="actualizar_usuario_proceso.php" method="POST">
             <input type="hidden" name="id" value="<?php echo htmlspecialchars($cliente['id']); ?>">
 
             <div class="mb-3">
