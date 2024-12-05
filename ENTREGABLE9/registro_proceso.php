@@ -46,9 +46,9 @@ $sql = "INSERT INTO Clientes (name, app, apm, dir, cp, tel, mail, password, rol)
 if (mysqli_query($conn, $sql)) {
     echo "Registro exitoso.";
     if ($rol === 'user') {
-        header("refresh:3;url=login.html");
+        header("refresh:3;url=principal.php");
     } else {
-        header("refresh:3;url=admin_dashboard.html");
+        header("refresh:3;url=principal.php");
     }
     exit();
 } else {
