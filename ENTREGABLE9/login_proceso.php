@@ -27,7 +27,7 @@ if (mysqli_num_rows($result) == 1) {
         $_SESSION['rol'] = $user['rol'];
 
         // Redirigir a la página principal
-        header("Location: principal.php");
+        header("Location: home.php");
         exit();
     } else {
         echo "Contraseña incorrecta.";
