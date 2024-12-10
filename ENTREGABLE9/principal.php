@@ -20,6 +20,30 @@ $rol = $_SESSION['rol'];
     <!-- Vincula Bootstrap desde su CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="home.php">VIRTUALMARKET</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="home.php">Página Principal</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="sobre_nosotros.php">Sobre Nosotros</a>
+                </li>
+                <li class="nav-item">
+                    <a href="logout.php" class="btn btn-danger">Cerrar Sesión</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
 <body class="bg-light">
 
     <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
@@ -49,10 +73,6 @@ $rol = $_SESSION['rol'];
                     <li class="list-group-item"><a href="crear_categoria.html">Crear Categorías de Productos</a></li>
                     <li class="list-group-item"><a href="consulta_categoria.php">Consultar Categorías de Productos</a></li>
                 </ul>
-
-                <div class="text-center">
-                    <button onclick="window.location.href='logout.php'" class="btn btn-danger">Cerrar Sesión</button>
-                </div>
             <?php else: ?>
                 <h2 class="text-center mb-4">Panel de Usuario</h2>
                 <ul class="list-group mb-4">
@@ -60,14 +80,15 @@ $rol = $_SESSION['rol'];
                     <li class="list-group-item"><a href="historial_compras.php">Consultar historial de pedidos</a></li>
                     <li class="list-group-item"><a href="mis_pedidos.php">Consultar pedidos</a></li>
                 </ul>
-
-                <div class="text-center">
-                    <a href="logout.php" class="btn btn-danger">Cerrar Sesión</a>
-                </div>
             <?php endif; ?>
 
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p class="mb-0">&copy; 2024 VirtualMarket. Todos los derechos reservados.</p>
+    </footer>
 
     <!-- Vincula el archivo de Bootstrap desde su CDN -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
