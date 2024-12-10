@@ -36,58 +36,84 @@ $result_productos = $conn->query($sql_productos);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda</title>
-    <style>
-        .btn-regresar {
-            background-color: #f44336;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
-        .btn-regresar:hover {
-            background-color: #e53935;
-        }
-    </style>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-    <!-- Botón para regresar al menú principal o a cualquier otra página -->
-    <a href="principal.php" class="btn-regresar">Volver al Menú Principal</a>
+<body class="bg-light">
 
-    <h1>Productos Disponibles</h1>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="principal.php">VIRTUALMARKET</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="tienda.php">Tienda</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="carrito.php">Ver Carrito</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Contenido Principal -->
+<div class="container my-5">
+    <h1 class="text-center">Productos Disponibles</h1>
+    <a href="principal.php" class="btn btn-danger my-4">Volver al Menú Principal</a>
+
     <?php if ($result_productos->num_rows > 0): ?>
-        <table border="1">
-            <tr>
-                <th>Nombre</th>
-                <th>Marca</th>
-                <th>Precio</th>
-                <th>Stock</th>
-                <th>Acción</th>
-            </tr>
-            <?php while ($producto = $result_productos->fetch_assoc()): ?>
-                <tr>
-                    <td><?= htmlspecialchars($producto['nombre']) ?></td>
-                    <td><?= htmlspecialchars($producto['marca']) ?></td>
-                    <td>$<?= htmlspecialchars($producto['precio']) ?></td>
-                    <td><?= htmlspecialchars($producto['stock']) ?></td>
-                    <td>
-                    <form action="agregar_carrito.php" method="POST">
-                        <input type="hidden" name="carritoID" value="<?= htmlspecialchars($_SESSION['carritoID']) ?>">
-                        <input type="hidden" name="productoID" value="<?= htmlspecialchars($producto['id']) ?>">
-                        <input type="number" name="cantidad" min="1" max="<?= htmlspecialchars($producto['stock']) ?>" required>
-                        <button type="submit">Agregar al carrito</button>
-                    </form>
-                    </td>
-                </tr>
-            <?php endwhile; ?>
-        </table>
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Marca</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php while ($producto = $result_productos->fetch_assoc()): ?>
+                        <tr>
+                            <td><?= htmlspecialchars($producto['nombre']) ?></td>
+                            <td><?= htmlspecialchars($producto['marca']) ?></td>
+                            <td>$<?= htmlspecialchars($producto['precio']) ?></td>
+                            <td><?= htmlspecialchars($producto['stock']) ?></td>
+                            <td>
+                                <form action="agregar_carrito.php" method="POST" class="d-flex">
+                                    <input type="hidden" name="carritoID" value="<?= htmlspecialchars($_SESSION['carritoID']) ?>">
+                                    <input type="hidden" name="productoID" value="<?= htmlspecialchars($producto['id']) ?>">
+                                    <input type="number" name="cantidad" min="1" max="<?= htmlspecialchars($producto['stock']) ?>" required class="form-control me-2" style="width: 100px;">
+                                    <button type="submit" class="btn btn-success">Agregar</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <?php endwhile; ?>
+                </tbody>
+            </table>
+        </div>
     <?php else: ?>
-        <p>No hay productos disponibles.</p>
+        <div class="alert alert-warning" role="alert">
+            No hay productos disponibles en este momento.
+        </div>
     <?php endif; ?>
 
-    <br>
-    <!-- Otro botón de regresar al carrito -->
-    <a href="carrito.php" class="btn-regresar">Ver Carrito</a>
+    <a href="carrito.php" class="btn btn-primary my-4">Ver Carrito</a>
+</div>
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center py-3">
+    <p class="mb-0">&copy; 2024 VirtualMarket. Todos los derechos reservados.</p>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
@@ -95,3 +121,4 @@ $result_productos = $conn->query($sql_productos);
 <?php
 $conn->close();
 ?>
+
