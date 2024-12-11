@@ -78,7 +78,7 @@ $resultado = mysqli_query($conn, $sql);
         </table>
 
         <div class="back-button">
-            <button onclick="window.location.href='admin_productos_index.html'" class="btn btn-secondary">Regresar al Índice de Productos</button>
+            <button onclick="window.location.href='principal.php'" class="btn btn-secondary">Regresar al Índice de Productos</button>
         </div>
     </div>
 
