@@ -8,7 +8,7 @@ include("conexion.php");
 $conn = conectar();
 
 // Ejecutar la consulta para obtener clientes
-$query = "SELECT * FROM Clientes WHERE rol='user' OR rol='admin'";
+$query = "SELECT * FROM Clientes WHERE rol='user' OR rol='admin' OR rol='repartidor'";
 $result = mysqli_query($conn, $query);
 
 if (!$result) {

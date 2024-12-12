@@ -60,7 +60,6 @@ $rol = $_SESSION['rol'];
                     <li class="list-group-item"><a href="consulta_usuarios.php">Consultar Usuarios</a></li>
                     <li class="list-group-item"><a href="actualizar_usuario.php">Actualizar Usuarios</a></li>
                     <li class="list-group-item"><a href="eliminar_cliente.php">Eliminar Usuarios</a></li>
-                    <li class="list-group-item"><a href="registro_repartidor.php">Registrar Repartidores</a></li>
                     <li class="list-group-item"><a href="actualizar_estado_pedido.php">Actualización de Estados en los Pedidos</a></li>
                 </ul>
 
@@ -72,6 +71,12 @@ $rol = $_SESSION['rol'];
                     <li class="list-group-item"><a href="eliminar_producto.php">Eliminar Productos</a></li>
                     <li class="list-group-item"><a href="crear_categoria.html">Crear Categorías de Productos</a></li>
                     <li class="list-group-item"><a href="consulta_categoria.php">Consultar Categorías de Productos</a></li>
+                </ul>
+            <?php elseif ($rol == 'repartidor'): ?>
+                <h2 class="text-center mb-4">Bienvenido al Panel de Reparto de Productos</h2>
+                <h3>Gestión de Entregas</h3>
+                <ul class="list-group mb-4">
+                    <li class="list-group-item"><a href="actualizar_estado_pedido.php">Actualización de Estados en los Pedidos</a></li>
                 </ul>
             <?php else: ?>
                 <h2 class="text-center mb-4">Panel de Usuario</h2>

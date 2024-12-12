@@ -53,6 +53,38 @@ $rol = $_SESSION['rol'];
         <a href="principal.php" class="btn btn-primary btn-lg">Panel de Administración</a>
     </div>
 
+<?php elseif ($rol == 'repartidor'): ?>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="home.php">VIRTUALMARKET</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="principal.php">Panel</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sobre_nosotros.php">Sobre Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="logout.php" class="btn btn-danger">Cerrar Sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="container text-center my-5">
+        <h1 class="display-4 fw-bold">Bienvenido, repartidor de VirtualMarket</h1>
+        <p class="lead">Repartidores como tú hacen posible que nuestro equipo crezca y que nuestros clientes se sientan bien en nuestra tienda.</p>
+        <a href="principal.php" class="btn btn-primary btn-lg">Panel de Repartidor</a>
+    </div>
+
 <?php else: ?>
 
     <!-- Navbar -->

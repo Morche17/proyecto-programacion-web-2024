@@ -3,7 +3,7 @@ session_start();
 require 'conexion.php';
 
 // Verificar si el usuario tiene rol de admin
-if (!isset($_SESSION['id']) || $_SESSION['rol'] !== 'admin') {
+if (!isset($_SESSION['id']) || $_SESSION['rol'] !== 'admin' && $_SESSION['rol'] !== 'repartidor') {
     header("Location: index.html");
     exit();
 }
